@@ -23,13 +23,19 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
 
+    implementation("javax.inject:javax.inject:1")
+    implementation("org.mapstruct:mapstruct:1.4.2.Final")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.swagger.core.v3:swagger-annotations")
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-http-server-netty")
+    implementation("io.micronaut.views:micronaut-views-thymeleaf");
+
+
 
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
@@ -47,3 +53,4 @@ java {
 }
 
 graalvmNative.toolchainDetection = false
+
