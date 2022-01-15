@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.mateuszk
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, gradle, http-client, java, java-application, junit, logback, lombok, micronaut-build, mockito, openapi, readme, shade, tomcat-server, yaml]
