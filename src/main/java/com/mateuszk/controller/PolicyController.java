@@ -4,6 +4,7 @@ import com.mateuszk.dto.PolicyDTO;
 import com.mateuszk.dto.response.PremiumResponse;
 import com.mateuszk.service.PolicyService;
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -14,6 +15,7 @@ import lombok.AllArgsConstructor;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import static io.micronaut.http.MediaType.APPLICATION_JSON;
 
@@ -22,12 +24,15 @@ import static io.micronaut.http.MediaType.APPLICATION_JSON;
 @AllArgsConstructor(onConstructor_={@Inject})
 public class PolicyController {
 
-    private PolicyService policyService;
+    private final PolicyService policyService;
 
+    //@formatter:off
     @Post(value = "/calculate")
     @Operation(summary = "Calculate Policy Premium", description = "Allows to upload a policy and calculate policy premium")
-    public HttpResponse<PremiumResponse> calculatePolicy(@Body @Valid PolicyDTO dto) {
-        policyService.calculate(dto);
-        return HttpResponse.accepted();
+    public HttpResponse<PremiumResponse> calculatePolicy(@Body @Valid @NotNull PolicyDTO policyDTO) {
+        return HttpResponse
+                .status(HttpStatus.OK)
+                .body(new PremiumResponse(policyDTO.getPolicyNumber(), policyService.calculate(policyDTO)));
     }
+    //@formatter:on
 }
