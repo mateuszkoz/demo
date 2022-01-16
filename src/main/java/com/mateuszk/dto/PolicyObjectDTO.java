@@ -8,7 +8,7 @@ import lombok.Data;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Data
@@ -21,6 +21,6 @@ public class PolicyObjectDTO implements PolicyObject {
     private String name;
 
     @Valid
-    @NotNull(message = "At least one Policy Sub Object is required")
+    @NotEmpty(message = "At least one Policy Sub Object is required")
     private List<SubObjectDTO> subObjects;
 }
