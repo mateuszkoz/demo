@@ -26,8 +26,8 @@ public class SubObjectDTO implements SubObject {
     @Schema(example = "12.5")
     private Double sumInsured;
 
-    @NotNull
-    @Pattern(regexp = "(FIRE|THEFT)", message = "Risk Type needs to be set to one of the following values: FIRE, THEFT")
+    @NotNull(message = "Risk Type needs to be set to one of the following values: FIRE, THEFT")
+    @Pattern(regexp = "(FIRE|THEFT)")
     @Schema(example = "FIRE")
     private RiskType riskType;
 }

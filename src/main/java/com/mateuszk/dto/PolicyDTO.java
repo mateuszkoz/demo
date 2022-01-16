@@ -11,6 +11,7 @@ import lombok.Data;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -25,7 +26,8 @@ public class PolicyDTO implements Policy {
     @Schema(example = "LV20-02-100000-5")
     private String policyNumber;
 
-    @Pattern(regexp = "(REGISTERED|APPROVED)", message = "Policy Status needs to be set to one of the following values: REGISTERED, APPROVED")
+    @NotNull(message = "Policy Status needs to be set to one of the following values: REGISTERED, APPROVED")
+    @Pattern(regexp = "(REGISTERED|APPROVED)")
     @Schema(example = "\"REGISTERED\"")
     private PolicyStatus policyStatus;
 
