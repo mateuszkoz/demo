@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 import javax.validation.ConstraintViolationException;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,7 +35,7 @@ class PolicyControllerTest {
         assertEquals(HttpStatus.OK, response.status());
         assertEquals(policyNumber, Objects.requireNonNull(response.body()).policyNumber());
         assertEquals(200, response.code());
-        assertEquals(BigDecimal.valueOf(2.28), Objects.requireNonNull(response.body()).premium());
+        assertEquals(2.28, Objects.requireNonNull(response.body()).premium());
     }
     //@formatter:on
 
@@ -47,7 +46,7 @@ class PolicyControllerTest {
         assertEquals(HttpStatus.OK, response.status());
         assertEquals(policyNumber, Objects.requireNonNull(response.body()).policyNumber());
         assertEquals(200, response.code());
-        assertEquals(BigDecimal.valueOf(17.13), Objects.requireNonNull(response.body()).premium());
+        assertEquals(17.13, Objects.requireNonNull(response.body()).premium());
     }
     //@formatter:on
 
@@ -58,7 +57,7 @@ class PolicyControllerTest {
         assertEquals(HttpStatus.OK, response.status());
         assertEquals(policyNumber, Objects.requireNonNull(response.body()).policyNumber());
         assertEquals(200, response.code());
-        assertEquals(BigDecimal.valueOf(4.56), Objects.requireNonNull(response.body()).premium());
+        assertEquals(4.56, Objects.requireNonNull(response.body()).premium());
     }
     //@formatter:on
 

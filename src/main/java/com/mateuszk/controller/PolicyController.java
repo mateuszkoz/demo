@@ -32,7 +32,7 @@ public class PolicyController {
     public HttpResponse<PremiumResponse> calculatePolicy(@Body @Valid @NotNull PolicyDTO policyDTO) {
         return HttpResponse
                 .status(HttpStatus.OK)
-                .body(new PremiumResponse(policyDTO.getPolicyNumber(), policyService.calculate(policyDTO)));
+                .body(new PremiumResponse(policyDTO.getPolicyNumber(), policyService.calculate(policyDTO).doubleValue()));
     }
     //@formatter:on
 }
