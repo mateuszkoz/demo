@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Singleton
 public class PremiumCalculator {
+
     //@formatter:off
     public BigDecimal calculate(Policy policy) {
         return policy.getPolicyObjects()
