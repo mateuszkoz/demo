@@ -18,13 +18,17 @@ public class PremiumCalculator {
                 .map(this::calculatePremiumForObject)
                 .reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
     }
+    //@formatter:on
 
+    //@formatter:off
     private BigDecimal calculatePremiumForObject(PolicyObject policyObject) {
         return BigDecimal.valueOf(policyObject.insuredSumSplitByRisk().entrySet().parallelStream()
                 .mapToDouble(this::multiplyByCoefficient)
                 .sum()).setScale(2, RoundingMode.HALF_UP);
     }
+    //@formatter:on
 
+    //@formatter:off
     private double multiplyByCoefficient(Map.Entry<RiskType, Double> entry) {
         final Double amount = entry.getValue();
         return amount * entry.getKey().getCoefficient(amount);
