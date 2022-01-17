@@ -1,3 +1,10 @@
+## How to run the app
+- Tasks -> application -> run or ./gradlew run
+- Application by default is running on port 8080 (go to application.yml to set up custom port)
+- Swagger-ui is available at http://localhost:8080/swagger-ui
+- Rapidoc is available at http://localhost:8080/rapidoc
+- sampleRequest.http contains samples which can be run from the file itself (required IntelliJ IDE)
+
 ## Micronaut 3.2.6 Documentation
 
 - [User Guide](https://docs.micronaut.io/3.2.6/guide/index.html)

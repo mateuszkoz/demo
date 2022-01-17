@@ -27,7 +27,7 @@ public class PolicyController {
     private final PolicyService policyService;
 
     //@formatter:off
-    @Post(value = "/calculate")
+    @Post(value = "/calculate", produces = APPLICATION_JSON)
     @Operation(summary = "Calculate Policy Premium", description = "Allows to upload a policy and calculate policy premium")
     public HttpResponse<PremiumResponse> calculatePolicy(@Body @Valid @NotNull PolicyDTO policyDTO) {
         return HttpResponse
