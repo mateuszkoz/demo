@@ -1,4 +1,6 @@
 micronaut:
+  server:
+    port: 8080
   application:
     name: demo
   router:
@@ -7,6 +9,6 @@ micronaut:
         paths: classpath:META-INF/swagger
         mapping: /swagger/**
       rapidoc:
-        paths: classpath:META-INF/swagger/views/rapidoc
-        mapping: /rapidoc/**
+    paths: classpath:META-INF/swagger/views/rapidoc
+    mapping: /rapidoc/**
 
