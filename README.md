@@ -4,6 +4,27 @@
 - Swagger-ui is available at http://localhost:8080/swagger-ui
 - Rapidoc is available at http://localhost:8080/rapidoc
 - sampleRequest.http contains samples which can be run from the file itself (required IntelliJ IDE)
+---
+
+## Implementation Description
+1. Technologies:
+    * Java 17 
+    * Gradle
+    * Micronaut
+    * JUnit5
+    * Mockito
+    * Openapi 
+    * Lombok
+2. Implementation details:
+    * API accept JSON Object via POST method at uri/policy/calculate endpoint
+    * Request first is validated (using javax.validation-api library). 
+    * If request is valid then controller passed request mapped to Policy object to PolicyService, which pass policy to PremiumCalculator to calculate method
+    * calculate for each PolicyObject calculate sum of sumInsured grouping by RiskType and call RiskType for coefficient value based on sum, multiplied by coefficient and sum all results.
+    * RiskType calculate coefficient based on amount and CoefficientConfig which is a list of coefficient levels (level start, coefficient value, is start inclusive)
+3. API documentation
+    * API documentation is available after application run at /rapidoc, /swagger-ui or /swagger/demo-0.0.yml
+    * documentation contains example and validation description
+    
 
 ## Micronaut 3.2.6 Documentation
 
