@@ -68,10 +68,10 @@ class PolicyControllerTest {
 
     }
 
-    private void basicRequestBodyValidationTest(String expected, PolicyDTO policyWithNegativeInsureValue) {
+    private void basicRequestBodyValidationTest(String expected, PolicyDTO policy) {
         ConstraintViolationException exception = assertThrows(
                 ConstraintViolationException.class,
-                () -> policyController.calculatePolicy(policyWithNegativeInsureValue)
+                () -> policyController.calculatePolicy(policy)
         );
         assertEquals(expected, exception.getMessage());
     }

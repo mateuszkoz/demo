@@ -41,9 +41,9 @@ class PolicyObjectTest {
     }
 
     private SubObjectDTO getMockedSubObject(RiskType riskType, Double sumInsured) {
-        SubObjectDTO fireObject = Mockito.mock(SubObjectDTO.class);
-        when(fireObject.getRiskType()).thenReturn(riskType);
-        when(fireObject.getSumInsured()).thenReturn(sumInsured);
-        return fireObject;
+        SubObjectDTO subObject = Mockito.mock(SubObjectDTO.class);
+        when(subObject.getRiskType()).thenReturn(riskType);
+        when(subObject.getSumInsured()).thenReturn(sumInsured);
+        return subObject;
     }
 }
