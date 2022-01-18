@@ -9,6 +9,9 @@ micronaut:
       rapidoc:
         paths: classpath:META-INF/swagger/views/rapidoc
         mapping: /rapidoc/**
+      redoc:
+        paths: classpath:META-INF/swagger/views/redoc
+        mapping: /redoc/**
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
