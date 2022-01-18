@@ -22,11 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @MicronautTest
 class PolicyControllerTest {
     @Inject PolicyController policyController;
-    private final String policyNumber;
-
-    {
-        policyNumber = "LV20-02-100000-5";
-    }
+    private final String policyNumber = "LV20-02-100000-5";
 
     //@formatter:off
     @Test

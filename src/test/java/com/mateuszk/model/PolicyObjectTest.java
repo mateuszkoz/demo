@@ -40,9 +40,9 @@ class PolicyObjectTest {
         assertEquals(expected, mockedPolicyObject.insuredSumSplitByRisk());
     }
 
-    private SubObjectDTO getMockedSubObject(RiskType fire, Double sumInsured) {
+    private SubObjectDTO getMockedSubObject(RiskType riskType, Double sumInsured) {
         SubObjectDTO fireObject = Mockito.mock(SubObjectDTO.class);
-        when(fireObject.getRiskType()).thenReturn(fire);
+        when(fireObject.getRiskType()).thenReturn(riskType);
         when(fireObject.getSumInsured()).thenReturn(sumInsured);
         return fireObject;
     }

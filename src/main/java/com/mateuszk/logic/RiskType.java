@@ -6,30 +6,28 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public enum RiskType {
-    FIRE(){
-        final CoefficientConfig config = new CoefficientConfig(
-                List.of(
-                        new CoefficientLevel(0., 0.014, true), new CoefficientLevel(100., 0.024, false)
-                )
-        );
+    //@formatter:off
+    FIRE(new CoefficientConfig(
+            List.of(
+                    new CoefficientLevel(0., 0.014, true),
+                    new CoefficientLevel(100., 0.024, false)
+            )
+    )),
+    //@formatter:on
+    //@formatter:off
+    THEFT(new CoefficientConfig(
+            List.of(
+                    new CoefficientLevel(0., 0.11, true),
+                    new CoefficientLevel(15., 0.05, true)
+            )
+    ));
+    //@formatter:on
 
-        @Override
-        public Double getCoefficient(Double amount) {
-            return config.getValue(amount).orElseThrow().value();
-        }
-    },
-    THEFT(){
-        final CoefficientConfig config = new CoefficientConfig(
-                List.of(
-                        new CoefficientLevel(0., 0.11, true), new CoefficientLevel(15., 0.05, true)
-                )
-        );
+    private final CoefficientConfig config;
 
-        @Override
-        public Double getCoefficient(Double amount) {
-            return config.getValue(amount).orElseThrow().value();
-        }
-    };
+    RiskType(CoefficientConfig config) {
+        this.config = config;
+    }
 
     /**
      * Returns coefficient value for {@code Double} amount.
@@ -37,7 +35,9 @@ public enum RiskType {
      * @throws NoSuchElementException for negative amount value
      * @return Coefficient value {@code Double}
      */
-    public abstract Double getCoefficient(Double amount) throws NoSuchElementException;
+    public Double getCoefficient(Double amount) throws NoSuchElementException {
+        return config.getValue(amount).orElseThrow().value();
+    }
 }
 
 record CoefficientConfig(List<CoefficientLevel> levels) {
